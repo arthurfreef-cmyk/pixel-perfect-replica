@@ -5,7 +5,7 @@ import { CtaLink, Reveal } from "./primitives";
 export function TopBar() {
   return (
     <div className="bg-ink px-4 py-2.5 text-center text-xs text-ink-muted sm:text-sm">
-      <span>Seu próximo orçamento pode ser mais rápido, mais claro e muito mais profissional.</span>{" "}
+      <span>Pare de deixar custos importantes fora do orçamento.</span>{" "}
       <a href="#produto" className="ml-1 font-bold text-accent underline-offset-4 hover:underline focus-visible:underline">
         Conhecer o OBRA IA →
       </a>
@@ -108,7 +108,7 @@ export function Hero() {
             Para pedreiros, empreiteiros e profissionais de reformas
           </p>
           <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-ink-foreground sm:text-5xl lg:text-6xl">
-            Você pode estar <span className="text-accent">perdendo dinheiro</span> em cada obra por cobrar errado.
+            Um custo esquecido no orçamento pode virar prejuízo na sua obra.
           </h1>
           <p className="mt-6 text-lg text-ink-foreground/90">
             Descubra quanto considerar em materiais, mão de obra, custos adicionais e margem — e transforme essas
@@ -120,13 +120,13 @@ export function Hero() {
             mais claras aos seus clientes.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <CtaLink>Quero organizar meus orçamentos</CtaLink>
+            <CtaLink>Quero parar de improvisar</CtaLink>
             <CtaLink href="#metodo" variant="ghost" arrow={false}>
               Ver como funciona
             </CtaLink>
           </div>
           <p className="mt-5 text-sm text-ink-muted">
-            Acesso digital • Ferramentas práticas • Criado para a rotina da construção civil
+            Materiais • Mão de obra • Custos • Propostas profissionais
           </p>
           <p className="sr-only">Plano Profissional por {PRICES.profissional}</p>
         </Reveal>
