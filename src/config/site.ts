@@ -41,4 +41,4 @@ export const isCheckoutPlaceholder = (url: string = SITE.checkoutUrl): boolean =
 export type PlanKey = keyof typeof SITE.planCheckoutUrls;
 
 export const planCheckout = (plan: PlanKey): string =>
-  SITE.planCheckoutUrls[plan] || SITE.checkoutUrl;
+  SITE.planCheckoutUrls[plan] || (isCheckoutPlaceholder() ? "#oferta" : SITE.checkoutUrl);
