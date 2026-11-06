@@ -1,58 +1,43 @@
 import {
-  Ruler, Grid3x3, Package, PaintBucket, HardHat, Clock, Truck, Percent, FileText,
+  Ruler, Package, PaintBucket, HardHat, Truck, Percent, FileText,
   Layers, Zap, Eye, BadgeCheck, Info, type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading, Reveal } from "./primitives";
 
 const questions: { icon: LucideIcon; text: string }[] = [
-  { icon: Ruler, text: "Quantos metros quadrados serão revestidos?" },
-  { icon: Grid3x3, text: "Quanto comprar de piso ou revestimento?" },
-  { icon: Package, text: "Quantos sacos de argamassa serão necessários?" },
-  { icon: PaintBucket, text: "Quanto de tinta será utilizado?" },
+  { icon: Ruler, text: "Quais medidas e quantidades considerar?" },
+  { icon: Package, text: "Quanto material comprar — e quanto reservar para perdas?" },
+  { icon: PaintBucket, text: "Qual o custo real dos materiais?" },
   { icon: HardHat, text: "Quanto cobrar pela mão de obra?" },
-  { icon: Clock, text: "Quanto tempo o serviço pode levar?" },
-  { icon: Truck, text: "Quais custos de transporte e equipamentos devem entrar?" },
-  { icon: Percent, text: "Qual margem deve ser considerada?" },
-  { icon: FileText, text: "Como apresentar tudo isso ao cliente?" },
+  { icon: Truck, text: "Transporte, equipamentos e custos extras entraram na conta?" },
+  { icon: Percent, text: "A margem cobre o trabalho e os riscos da obra?" },
+  { icon: FileText, text: "O cliente vai entender sua proposta?" },
 ];
 
 export function Problem() {
   return (
     <Section className="bg-background">
       <SectionHeading
-        eyebrow="O problema"
-        title="O problema não é trabalhar muito. É trabalhar sem saber se o orçamento está certo."
+        eyebrow="O custo do improviso"
+        title="Um orçamento mal calculado pode consumir o lucro de uma obra inteira."
+        subtitle="Não basta somar material e mão de obra. Um item esquecido, uma quantidade errada ou um custo que ficou de fora pode transformar serviço em prejuízo."
       />
-      <Reveal className="mx-auto mt-10 max-w-2xl text-center">
-        <p className="text-muted-foreground">Quando o cliente pergunta:</p>
-        <p className="mt-3 text-2xl font-extrabold text-foreground">“Quanto você cobra para reformar meu banheiro?”</p>
-        <p className="mt-3 text-muted-foreground">Você precisa calcular rapidamente:</p>
-      </Reveal>
-      <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-9 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {questions.map(({ icon: Icon, text }, i) => (
-          <li key={text}>
-            <Reveal delay={i * 40} className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-soft">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent">
-                <Icon className="h-4 w-4" aria-hidden />
-              </span>
-              <span className="font-semibold text-foreground">{text}</span>
-            </Reveal>
-          </li>
+          <Reveal key={text} delay={i * 35} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent">
+              <Icon className="h-4 w-4" aria-hidden />
+            </span>
+            <span className="text-sm font-semibold text-foreground">{text}</span>
+          </Reveal>
         ))}
-      </ul>
-      <Reveal className="mx-auto mt-12 max-w-2xl space-y-3 text-lg text-foreground">
-        <p>Se você esquecer um item, <strong>pode cobrar menos do que deveria.</strong></p>
-        <p>Se calcular tudo de forma exagerada, <strong>pode perder a oportunidade.</strong></p>
-        <p>Se apresentar uma proposta confusa, <strong>pode transmitir menos profissionalismo do que realmente possui.</strong></p>
-        <p className="text-muted-foreground">
-          O problema é que muitos profissionais ainda fazem tudo no papel, na memória ou em planilhas espalhadas.
+      </div>
+      <Reveal className="mx-auto mt-8 max-w-3xl rounded-xl border border-border bg-muted px-5 py-4 text-center">
+        <p className="text-base font-extrabold text-foreground sm:text-lg">
+          Se você não enxerga todos os custos, não sabe exatamente o que está cobrando.
         </p>
-      </Reveal>
-      <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border-l-4 border-accent bg-primary p-8 text-primary-foreground shadow-soft">
-        <p className="text-xl font-extrabold sm:text-2xl">Você não precisa virar engenheiro para organizar melhor seus orçamentos.</p>
-        <p className="mt-3 text-primary-foreground/80">
-          Você precisa de um processo claro para levantar as informações, calcular os principais custos e apresentar
-          sua proposta com mais segurança.
+        <p className="mt-2 text-sm text-muted-foreground">
+          O OBRA IA ajuda a colocar essas informações em ordem para você revisar antes de apresentar o preço.
         </p>
       </Reveal>
     </Section>
@@ -60,10 +45,10 @@ export function Problem() {
 }
 
 const benefits: { icon: LucideIcon; title: string; text: string }[] = [
-  { icon: Layers, title: "Mais organização", text: "Centralize as principais informações do serviço em um único processo." },
-  { icon: Zap, title: "Mais agilidade", text: "Evite repetir os mesmos cálculos e procure menos informações espalhadas." },
-  { icon: Eye, title: "Mais clareza", text: "Visualize materiais, mão de obra, custos e margem de forma estruturada." },
-  { icon: BadgeCheck, title: "Mais profissionalismo", text: "Apresente propostas claras, completas e fáceis de entender." },
+  { icon: Layers, title: "Custos organizados", text: "Materiais, mão de obra e despesas em uma estrutura única." },
+  { icon: Zap, title: "Menos retrabalho", text: "Use ferramentas e modelos para não começar sempre do zero." },
+  { icon: Eye, title: "Mais clareza", text: "Revise quantidades, custos e margem antes de fechar o preço." },
+  { icon: BadgeCheck, title: "Propostas melhores", text: "Apresente o serviço e os valores de forma profissional." },
 ];
 
 export function Product() {
@@ -71,27 +56,24 @@ export function Product() {
     <Section id="produto" className="bg-muted">
       <SectionHeading
         eyebrow="A solução"
-        title="Conheça o OBRA IA: seu apoio inteligente para elaborar orçamentos"
-        subtitle="Uma solução prática para organizar orçamentos, estimar materiais, calcular mão de obra e montar propostas comerciais mais profissionais. Em vez de começar do zero, você segue uma estrutura para visualizar os principais custos e revisar tudo antes de enviar ao cliente."
+        title="Chega de montar orçamento no improviso."
+        subtitle="O OBRA IA reúne ferramentas de apoio para estimar materiais, calcular mão de obra, organizar custos e preparar propostas. Você mantém o controle e revisa os dados de cada obra."
       />
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {benefits.map(({ icon: Icon, title, text }, i) => (
-          <Reveal key={title} delay={i * 80} className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-transform hover:-translate-y-1">
-            <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-accent">
-              <Icon className="h-6 w-6" aria-hidden />
+      <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {benefits.map(({ icon: Icon, title, text }) => (
+          <Reveal key={title} className="rounded-xl border border-border bg-card p-5">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-primary text-accent">
+              <Icon className="h-5 w-5" aria-hidden />
             </span>
-            <h3 className="mt-5 text-sm font-extrabold uppercase tracking-wider text-foreground">{title}</h3>
-            <p className="mt-2 text-muted-foreground">{text}</p>
+            <h3 className="mt-4 font-extrabold text-foreground">{title}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">{text}</p>
           </Reveal>
         ))}
       </div>
-      <Reveal className="mx-auto mt-10 flex max-w-3xl items-start gap-3 rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground">
-        <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
-        <p>
-          O OBRA IA é uma ferramenta de apoio. Os resultados dependem das informações inseridas, dos preços praticados
-          na região, das condições da obra e da revisão feita pelo profissional.
-        </p>
-      </Reveal>
+      <p className="mx-auto mt-6 flex max-w-3xl items-start gap-2 text-xs leading-relaxed text-muted-foreground">
+        <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+        Os resultados dependem dos dados inseridos, dos preços locais e das condições da obra. A ferramenta não substitui a análise do profissional.
+      </p>
     </Section>
   );
 }
