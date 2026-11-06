@@ -58,7 +58,7 @@ export function Footer() {
     { label: "Termos de uso", href: SITE.termsUrl },
     { label: "Política de privacidade", href: SITE.privacyUrl },
     { label: "Suporte", href: `mailto:${SITE.supportEmail}` },
-    { label: "Checkout", href: SITE.checkoutUrl },
+    { label: "Planos", href: isCheckoutPlaceholder() ? "#oferta" : SITE.checkoutUrl },
   ];
   return (
     <footer className="border-t border-ink-border bg-ink px-4 pb-28 pt-12 text-ink-muted sm:px-6 md:pb-12">
