@@ -2,7 +2,7 @@ import { useEffect, useRef, type ComponentProps, type ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SITE } from "@/config/site";
+import { SITE, isCheckoutPlaceholder } from "@/config/site";
 
 const ctaVariants = cva(
   "group inline-flex items-center justify-center gap-2 rounded-xl font-extrabold uppercase tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 active:scale-[0.98]",
@@ -30,7 +30,7 @@ export interface CtaLinkProps extends ComponentProps<"a">, VariantProps<typeof c
 
 /** Botão-link reutilizável. Por padrão aponta para o checkout. */
 export function CtaLink({ className, variant, size, arrow = true, href, children, ...props }: CtaLinkProps) {
-  const target = href ?? SITE.checkoutUrl;
+  const target = href ?? (isCheckoutPlaceholder() ? "#oferta" : SITE.checkoutUrl);
   const external = target.startsWith("http");
   return (
     <a
